@@ -1,0 +1,38 @@
+{
+  "classbon": "داشبورد مدیریت",
+  "login": {
+    "title": "داشبورد مدیریت",
+    "introMessage": "ورود به پنل",
+    "signingin": "در حال ورود ...",
+    "signin": "وارد شوید",
+    "register": "ثبت نام کنید",
+    "email": "ایمیل *",
+    "password": "کلمه عبور *",
+    "areNotRegistered": "برای استفاده از امکانات وارد شوید",
+    "validation": {
+      "emailRequired": "ایمیل الزامی است",
+      "emailFormat": "فرمت ایمیل وارد شده صحیح نیست",
+      "passwordRequired": "کلمه عبور الزامی است",
+      "IncorrectUserNameOrPassword": "ایمیل یا کلمه عبور صحیح نمی‌باشد"
+    }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "داشبورد مدیریت",
+      "courseManagement": "مدیریت دوره ها",
+      "allCourses": "همه دوره ها",
+      "coursesCategory": "دسته بندی دوره ها",
+      "courseDiscount": "تخفیف دوره ها",
+      "userManagement": "مدیریت کاربرها",
+      "teacherManagement": "مدیریت مدرس ها",
+      "studentManagement": "مدیریت دانشجوها",
+      "blogManagement": "مدیریت بلاگ",
+      "tagManagement": "مدیریت تگ ها",
+      "postManagement": "مدیریت پست ها"
+    }
+  },
+  "categoryList": {
+    "DeleteIsNotPossible": "حذف این دسته امکان پذیر نیست",
+    "DuplicateCategory": "اسم دسته تکراری است"
+  }
+}

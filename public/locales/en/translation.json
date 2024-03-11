@@ -1,0 +1,38 @@
+{
+  "classbon": "Management dashboard",
+  "login": {
+    "title": "Management dashboard",
+    "introMessage": "To log in, you need to use your email  and password",
+    "signingin": "Signing in ...",
+    "signin": "Sign in",
+    "register": "Register",
+    "email": "Email *",
+    "password": "Password *",
+    "areNotRegistered": "Log in to use the facilities ...",
+    "validation": {
+      "emailRequired": "email is required",
+      "passwordRequired": "Password is required",
+      "emailFormat":"The email format entered is incorrect",
+      "IncorrectUserNameOrPassword": "The username or password is incorrect"
+    }
+  },
+  "mainLayout": {
+    "sidebar": {
+      "subtitle": "Management dashboard",
+      "courseManagement": "Course Management",
+      "allCourses": "All Courses",
+      "coursesCategory": "Courses Category",
+      "courseDiscount": "Course Discount",
+      "userManagement": "User Management",
+      "teacherManagement": "Teacher Management",
+      "studentManagement": "Student Management",
+      "blogManagement": "BlogManagement",
+      "tagManagement": "TagManagement",
+      "postManagement": "PostManagement"
+    }
+  },
+  "categoryList": {
+    "DeleteIsNotPossible": "It is not possible to delete this category",
+    "DuplicateCategory": "The category is duplicate"
+  }
+}
