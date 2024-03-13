@@ -18,17 +18,23 @@
   },
   "mainLayout": {
     "sidebar": {
+      "quickLinks":"QUICK LINKS",
       "subtitle": "Management dashboard",
-      "courseManagement": "Course Management",
-      "allCourses": "All Courses",
-      "coursesCategory": "Courses Category",
-      "courseDiscount": "Course Discount",
-      "userManagement": "User Management",
-      "teacherManagement": "Teacher Management",
-      "studentManagement": "Student Management",
-      "blogManagement": "BlogManagement",
-      "tagManagement": "TagManagement",
-      "postManagement": "PostManagement"
+      "dashboard": "Dashboard",
+      "newProduct": "New Product",
+      "newCoupon": "New Coupon",
+      "catalog":"CATALOG",
+      "products": "Products",
+      "categories": "Categories",
+      "collections": "Collections",
+      "attributes": "Attributes",
+      "sale":"SALE",
+      "orders": "Orders",
+      "customers": "Customers",
+      "promotion":"PROMOTION",
+      "cms":"CMS",
+      "coupons": "Coupons",
+      "pages": "Pages"
     }
   },
   "categoryList": {
