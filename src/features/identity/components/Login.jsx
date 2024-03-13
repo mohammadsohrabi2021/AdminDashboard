@@ -46,13 +46,13 @@ function Login() {
           <Grid className="m-sm-4">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Grid className="mb-3">
-                <label className="form-label">{t("login.email")}</label>
+                <label className="form-label">{t("login.username")}</label>
                 <input
-                  {...register("email", {
+                  {...register("username", {
                     required:true,
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: t("login.validation.emailFormat"),
+                      message: t("login.validation.usernameFormat"),
                     },
                     // required: true,
                     // minLength: 11,
@@ -64,21 +64,21 @@ function Login() {
                   //   maxLength: 11,
                   // })}
                   className={`form-control form-control-lg ${
-                    errors.email && "is-invalid"
+                    errors.username && "is-invalid"
                   }`}
                 />
-                {errors.email && errors.email.type === "required" && (
+                {errors.username && errors.username.type === "required" && (
                   <p className="text-danger small fw-bolder mt-1">
-                    {t("login.validation.emailRequired")}
+                    {t("login.validation.usernameRequired")}
                   </p>
                 )}
-                {errors.email && errors.email.type === "pattern" && (
+                {errors.username && errors.username.type === "pattern" && (
                   <p className="text-danger small fw-bolder mt-1">
-                    {/* {t(errors.email.message)} */}
-                    {t("login.validation.emailFormat")}
+                    {/* {t(errors.username.message)} */}
+                    {t("login.validation.usernameFormat")}
                   </p>
                 )}
-                  {/* {errors.email &&
+                  {/* {errors.username &&
                   (errors.mobile.type === "minLength" ||
                     errors.mobile.type === "maxLength") && (
                     <p className="text-danger small fw-bolder mt-1">
@@ -110,15 +110,15 @@ function Login() {
                   {isSubmitting ? t("login.signingin") : t("login.signin")}
                 </button>
               </Grid>
-              {routeErrors && (
+              {/* {routeErrors && (
                 <Grid className="alert alert-danger text-danger p-2 mt-3">
                   {routeErrors.response?.data.map((error) => (
                     <p className="mb-0">
-                      {t(`login.validation.${error.code}`)}
+                      {t(`login.validation.${error.detail}`)}
                     </p>
                   ))}
                 </Grid>
-              )}
+              )} */}
             </form>
           </Grid>
         </Grid>
@@ -129,8 +129,14 @@ function Login() {
 export async function loginAction({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  const response = await httpService.post("/Users/login", data);
-  console.log(response)
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'accept': 'application/json',
+  }
+
+  const response = await httpService.post("/login", data, { headers });
+  console.log(response);
+
   if (response.status === 200) {
     localStorage.setItem("token", response?.data.token);
     return redirect("/");
