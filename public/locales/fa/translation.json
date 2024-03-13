@@ -18,17 +18,23 @@
   },
   "mainLayout": {
     "sidebar": {
+      "quickLinks":"لینک های سریع",
       "subtitle": "داشبورد مدیریت",
-      "courseManagement": "مدیریت دوره ها",
-      "allCourses": "همه دوره ها",
-      "coursesCategory": "دسته بندی دوره ها",
-      "courseDiscount": "تخفیف دوره ها",
-      "userManagement": "مدیریت کاربرها",
-      "teacherManagement": "مدیریت مدرس ها",
-      "studentManagement": "مدیریت دانشجوها",
-      "blogManagement": "مدیریت بلاگ",
-      "tagManagement": "مدیریت تگ ها",
-      "postManagement": "مدیریت پست ها"
+      "dashboard": "داشبورد",
+      "newProduct": "محصول جدید",
+      "newCoupon": "کوپن جدید",
+      "catalog":"کاتالوگ",
+      "products": "محصولات",
+      "categories": "دسته بندی ها",
+      "collections": "مجموعه ها",
+      "attributes": "ویژگی های",
+      "sale":"فروش",
+      "orders": "سفارشات",
+      "customers": "مشتریان",
+      "promotion":"ترویج",
+      "coupons": "کوپن ها",
+      "cms":"صفحه ها",
+      "pages": "صفحات"
     }
   },
   "categoryList": {
