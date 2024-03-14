@@ -1,5 +1,6 @@
 {
   "classbon": "Management dashboard",
+  "logOut":"Log Out",
   "login": {
     "title": "Management dashboard",
     "introMessage": "To log in, you need to use your email  and password",
