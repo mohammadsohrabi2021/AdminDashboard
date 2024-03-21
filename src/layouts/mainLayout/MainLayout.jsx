@@ -41,7 +41,7 @@ const MainLayout = () => {
       )}
 
       <Grid className="main" style={{ overflowY: "auto", height: "100vh" }}>
-        <Grid position={"fixed"} left={0} right={0}>
+        <Grid position={"fixed"} left={0} right={0}  bgcolor={'#343a4b'}>
           <TopNav />
         </Grid>
 
