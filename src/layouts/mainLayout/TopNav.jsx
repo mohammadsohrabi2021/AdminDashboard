@@ -14,7 +14,7 @@ const TopNav = () => {
     navigate("/login");
   };
   return (
-    <Grid className="navbar navbar-expand navbar-light navbar-bg">
+    <Grid className="navbar navbar-expand navbar-light navbar-bg" zIndex={1}>
       <a className="sidebar-toggle" onClick={toggleSidebar}>
         <i className="hamburger align-self-center"></i>
       </a>
