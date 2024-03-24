@@ -25,7 +25,7 @@ function CategoriesProduct() {
   const handleDeleteCategory = async () => {
     setShowDeleteModal(false);
     const response = httpInterceptedServices.delete(
-      `/categories/${selectedCategory}`
+      `/categories/delete/${selectedCategory}`
     );
     toast.promise(
       response,
@@ -43,8 +43,8 @@ function CategoriesProduct() {
             return t("categoryList." + data.response.data.code);
           },
         },
-      },
-      { position: toast.POSITION.BOTTOM_LEFT }
+      }
+      // { position: toast.POSITION.BOTTOM_LEFT }
     );
   };
 
@@ -69,7 +69,7 @@ function CategoriesProduct() {
           <Suspense
             fallback={<p className="text-info">در حال دریافت اطلاعات...</p>}
           >
-            <Await resolve={data.categories}>
+            <Await resolve={data?.categories}>
               {(loadedCategories) => (
                 <CategoryList
                   deleteCategory={deleteCategory}
@@ -111,9 +111,10 @@ export async function categoriesLoader({request}) {
 }
 const loadCategories = async (request) => {
   const page = new URL(request.url).searchParams.get("page") || 1;
+
   const pageSize = 10;
-  let url = "/categories/get/all/";
-  url += `?page=${page} & pageSize=${pageSize}`;
+  let url = "/categories/get/all/items/";
+  url += `${pageSize}/page/${page}`;
   const response = await httpInterceptedServices.get(url);
   console.log(response.data)
   return response.data;
