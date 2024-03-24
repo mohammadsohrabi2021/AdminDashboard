@@ -1,11 +1,12 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
+
 const Modal = ({ isOpen, open, title, body, children }) => {
   return (
     <>
       {isOpen &&
-        createPortal(
+        // createPortal(
           <div
             className="modal"
             style={{ display: "block" }}
@@ -30,9 +31,9 @@ const Modal = ({ isOpen, open, title, body, children }) => {
                 <div className="modal-footer">{children}</div>
               </div>
             </div>
-          </div>,
-          document.getElementById("modal")
-        )}
+          </div>
+          // document.getElementById("modal")
+        }
     </>
   );
 };
