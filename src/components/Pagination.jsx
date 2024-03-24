@@ -9,6 +9,7 @@ const Pagination = ({
   const pages = Math.ceil(totalRecords / pageSize);
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = +searchParams.get("page") || 1;
+
   const prevPage = () => {
     if (currentPage > 1) {
       setSearchParams({ page: currentPage - 1 });
