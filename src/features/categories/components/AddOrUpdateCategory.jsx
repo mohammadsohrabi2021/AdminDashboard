@@ -5,9 +5,10 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCategoryContext } from "./CategoryContext";
+import { Grid } from "@mui/material";
 
 const AddOrUpdateCategory = ({ setShowAddCategory }) => {
-  const { category, setCategory } = useCategoryContext();
+  const { category, updateCategory } = useCategoryContext();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -27,48 +28,74 @@ const AddOrUpdateCategory = ({ setShowAddCategory }) => {
 
   const onClose = () => {
     setShowAddCategory(false);
-    setCategory(null);
+    updateCategory(null);
   };
-  const onSubmit = (data) => {
-    setShowAddCategory(false);
-    const modifiedData = {category_path: data.name }; 
-    const response = httpInterceptedServices.post(
-      `/categories/create/`,
-      modifiedData
-    );
-    console.log(response)
-    toast.promise(
-      response,
-      {
-        pending: "در حال ذخیره اطلاعات",
-        success: {
-          render() {
-            const url = new URL(window.location.href);
-            navigate(url.pathname + url.search);
-            if (category) {
-              setCategory(null);
-            }
-            return "عملیات با موفقیت انجام شد";
+  const onSubmit = async (data) => {
+    onClose()
+    if (category) {
+      let apiEndpoint = `/categories/edit/${category.id}`;
+      const response =  httpInterceptedServices.put(apiEndpoint, {
+        name: data.name,
+      });
+   
+      toast.promise(
+        response,
+        {
+          pending: "در حال ذخیره اطلاعات",
+          success: {
+            render() {
+              const url = new URL(window.location.href);
+              navigate(url.pathname + url.search);
+              return "عملیات با موفقیت انجام شد";
+            },
           },
-        },
-        error: {
-          render({ data }) {
-            if (data.response.status === 400) {
-              return t("categoryList." + data.response.data.code);
-            } else {
-              return "خطا در اجرای عملیات";
-            }
+          error: {
+            render({ data }) {
+              if (data.response.status === 400) {
+                return t("categoryList." + data.response.data.code);
+              } else {
+                return "خطا: " + data.response.data.detail;
+              }
+            },
           },
-        },
-      },
-      { position: toast.POSITION.BOTTOM_LEFT }
-    );
+        }
+      );
+    }else{
+      let apiEndpoint = "/categories/create/";
+      const response =  httpInterceptedServices.post(apiEndpoint, {
+        category_path: data.name,
+      });
+      toast.promise(
+        response,
+        {
+          pending: "در حال ذخیره اطلاعات",
+          success: {
+            render() {
+              const url = new URL(window.location.href);
+              navigate(url.pathname + url.search);
+              return "عملیات با موفقیت انجام شد";
+            },
+          },
+          error: {
+            render({ data }) {
+              if (data.response.status === 400) {
+                return t("categoryList." + data.response.data.code);
+              } else {
+                return "خطا: " + data.response.data.detail;
+              }
+            },
+          },
+        }
+      );
+    }
   };
+  
+  
   return (
-    <div className="card">
-      <div className="card-body">
+    <Grid className="card">
+      <Grid className="card-body">
         <form action="" className="mb-4" onSubmit={handleSubmit(onSubmit)}>
-          <div className="">
+          <Grid className="">
             <label htmlFor="" className="form-label">
               نام
             </label>
@@ -82,8 +109,8 @@ const AddOrUpdateCategory = ({ setShowAddCategory }) => {
             {errors.name && errors.name.type === "required" && (
               <p className="text-danger small fw-bolder mt-1">نام الزامی است</p>
             )}
-          </div>
-          <div className="text-start mt-3">
+          </Grid>
+          <Grid className="text-start mt-3">
             <button
               type="button"
               className="btn btn-lg btn-secondary ms-3"
@@ -94,10 +121,10 @@ const AddOrUpdateCategory = ({ setShowAddCategory }) => {
             <button type="submit" className="btn btn-lg btn-primary ms-3">
               ثبت تغییرات
             </button>
-          </div>
+          </Grid>
         </form>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
