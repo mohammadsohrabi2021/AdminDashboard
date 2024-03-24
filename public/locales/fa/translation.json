@@ -41,5 +41,9 @@
   "categoryList": {
     "DeleteIsNotPossible": "حذف این دسته امکان پذیر نیست",
     "DuplicateCategory": "اسم دسته تکراری است"
+  },
+  "productList": {
+    "DeleteIsNotPossible": "حذف این محصول امکان پذیر نیست",
+    "DuplicateProduct": "اسم محصول تکراری هست"
   }
 }

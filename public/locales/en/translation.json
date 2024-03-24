@@ -41,5 +41,9 @@
   "categoryList": {
     "DeleteIsNotPossible": "It is not possible to delete this category",
     "DuplicateCategory": "The category is duplicate"
+  },
+  "productList": {
+    "DeleteIsNotPossible": "It is not possible to delete this category",
+    "DuplicateCategory": "The category is duplicate"
   }
 }
